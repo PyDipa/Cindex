@@ -92,6 +92,7 @@ def Cindex(I,feature_names,pos_idx,neg_idx,plot,verbose):
     Direction =[]
     Components =[]
     cnt =0
+
     # The results depend on the initial variable selection;
     # The Cindex function operates using a nested loop structure:
     #      - The outer `for` loop iterates through each variable as the "initial variable".
