@@ -12,22 +12,31 @@ from matplotlib import pyplot as plt
 
 
 #---------------------------------------------------
-# setting colors for the boxplot
-colors = ['tab:blue','orange','darkgrey']
-#dict: structure for storing data and metadata based on key-values pairs
-marker = dict( marker='.',markersize=6)
+# Define colors for the boxplot
+colors = ['tab:blue', 'orange', 'darkgrey']
+# Dictionary for storing data and metadata using key-value pairs
+marker = dict(marker='.', markersize=6)
+
 
 def monotonic(x):
     """
-    Monotonic identifies the components under a monotonic
-    increase of the vector x
-    x = mono-dimensional array
-       
+    Identifies the components in a monotonically increasing sequence
+
+    Parameters
+    ----------
+    x : numpy array
+        A one-dimensional array of numeric values.
+
+    Returns
+    -------
+    components : list
+        A list of indices corresponding to elements that maintain
+        the monotonic increase.
     """
     components = [0]
-    for i in range(1,len(x)):
-        if (x[i] >= x[i-1])==True:
-            components.append(i) 
+    for i, val in enumerate(x[1:], start=1):
+        if val >= x[i - 1]:
+            components.append(i)
         else:
             break
     return components
@@ -36,9 +45,9 @@ def monotonic(x):
 
 def Cindex(I,feature_names,pos_idx,neg_idx,plot,verbose):
     """
-The Cindex calculates a composite index from a set of independent variables.
-This index aims to maximize the Euclidean distance between two subsets of data identified by indicator (or conditional) variables
-    
+    The Cindex calculates a composite index from a set of independent variables.
+    This index aims to maximize the Euclidean distance between two subsets of data identified by indicator (or conditional) variables
+
     
         Parameters
         ----------
@@ -83,14 +92,14 @@ This index aims to maximize the Euclidean distance between two subsets of data i
     Direction =[]
     Components =[]
     cnt =0
-    # the results depend on the starting variable;
-    # the algorithm tests each variable as "starting variable" (i-loop)
-    # the Cindex is a nested loop:
-    #      - the outer for-loop test each input variable as "initial variable",
-    #      - the inner while loop iteratively tests all remaining variables to find the one that maximizes
-    #        the Fisher Distance, updating the composite index accordingly.  NB at the beginning, Cindex == initial variable
-    #      - The innermost for loop calculates the distance measures for adding or subtracting each remaining variable
-    #        to/from the composite index, helping the inner while loop to select the best variable in each iteration.
+    # The results depend on the initial variable selection;
+    # The Cindex function operates using a nested loop structure:
+    #      - The outer `for` loop iterates through each variable as the "initial variable".
+    #      - The inner `while` loop sequentially tests all remaining variables, selecting the one
+    #        that maximizes the Fisher Distance, and updating the composite index accordingly.
+    #        (Note: at the beginning, the composite index equals the initial variable).
+    #      - The innermost `for` loop computes distance metrics for both adding and subtracting
+    #        each remaining variable, allowing the `while` loop to select the optimal choice at each iteration.
 
     for i in range(np.shape(I)[1]):
         # select a first variable from I (x)
