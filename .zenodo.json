@@ -1,0 +1,15 @@
+{
+  "title": "Cindex",
+  "description": "A Python script to identify the best composite Index for seasonal crop management.",
+  "creators": [
+    {
+      "name": "Arianna Di Paola",
+      "affiliation": "CNR-IBE",
+      "orcid": "0000-0001-9050-4787"
+    }
+  ],
+  "license": "GPL-3.0",
+  "keywords": ["C-index", "Python", "composite index"],
+  "access_right": "open",
+  "version": "3.0.0"
+}
