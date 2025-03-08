@@ -14,3 +14,17 @@ REQUIREMENTS:
 - NumPy
 - Matplotlib
 
+HISTORY
+v1. First release December 2021 (deprecated)
+
+v2. Updated in October 2022
+    - graphical bug fixed (blue box == data under neg_flag)
+    - variable selection bug fixed 
+    - added new features:
+        > A new library utils.py.py has been created;
+        > the recursive calculation for C-index has been put into the function Cindex within utils.py
+
+v3. Updated in March 2025
+    - corrected grammatical errors in comments
+    - improved comments explaining some command lines
+    - renamed some variables to improve the readability and comprehensibility of the code
