@@ -5,8 +5,6 @@ See the Concept_note.pdf to read about the component index
 
 @author: Arianna Di Paola 
 
-
-
 MANDATORY: 
 Input features must be expressed as Z-score (mean=0, one standard deviation =1).
 In the example inputs data (text data in CSV format) are already standardized in Z-scores. 
